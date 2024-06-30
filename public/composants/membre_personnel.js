@@ -1020,7 +1020,7 @@ class Repertoire_personnel extends React.Component {
                 adresse_physique :item.adresse_physique,
                 lieu_naiss       :item.lieu_naissance,
                 structure        :item.denomination,
-                photo            :'http://localhost:8002/'+item.photo,
+                photo            :'http://54.167.118.145:8002/'+item.photo,
                 one_erreur       :item.photo
             })
         ))
@@ -1434,7 +1434,7 @@ class Repertoire_compte_membre extends React.Component {
                             </div>
                             {(this.state.state_msg == 'attente') ? <i id="sp" className="fas fa-spinner fa-pulse" style={spinner}></i> : '' } 
                             <br/>
-                            {(photo) ? <img style={styleimg} src={'http://localhost:8002/'+photo} className="rounded-circle" /> : '' } <br/><br/>
+                            {(photo) ? <img style={styleimg} src={'http://54.167.118.145:8002/'+photo} className="rounded-circle" /> : '' } <br/><br/>
                             <table className="table table-striped" id="example">
                                 {(this.state.compte !='') ? <tr><td className="col-1">Prénom</td><td>: {prenom}</td><td className="col-1">Lieu de naissance</td><td>: {lieu_naissance}</td></tr> : '' }
                                 {(this.state.compte !='') ? <tr><td className="col-1">Nom</td><td>: {nom}</td><td>Etat-civil</td><td>: {etat_civil}</td></tr>  : '' }
@@ -1576,12 +1576,12 @@ class Repertoire_compte_organisation extends React.Component {
                                     <table className="table table-striped" id="example">
                                     {(this.state.compte !='') ?  <tr><td className="col-1"><b>ETABLISSEMENT</b></td><td></td><td></td><td></td></tr> :'' }
                                     {(this.state.compte !='') ?  <tr><td className="col-1">Téléphone</td><td>: {telephone}</td><td className="col-1">Compte</td><td>:<span>&nbsp;{num_compte[0]}<br/></span></td></tr> :'' }
-                                    {(this.state.compte !='') ?  <tr><td className="col-1">Denomination</td><td>: {denomination}</td><td>Autorisation</td><td>: <a href={'http://localhost:8002/'+autorisation} target="blank">Document administratif</a> </td></tr> :'' }
+                                    {(this.state.compte !='') ?  <tr><td className="col-1">Denomination</td><td>: {denomination}</td><td>Autorisation</td><td>: <a href={'http://54.167.118.145:8002/'+autorisation} target="blank">Document administratif</a> </td></tr> :'' }
                                     {(this.state.compte !='') ?  <tr><td className="col-1">Email</td><td>: {email}</td><td>Adresse Physique</td><td>: {adresse_physique}</td></tr> :'' }
                                     {(this.state.compte !='') ?  <tr><td className="col-1">RCCM</td><td>: {rccm}</td><td>ID National</td><td>: {id_national}</td></tr> :'' }
 
                                     {(this.state.compte !='') ?  <tr><td className="col-1"><br/><b>GERANT</b></td><td></td><td></td><td></td></tr> :'' }
-                                    {(this.state.compte !='') ?  <tr><td className="col-1"><img style={styleimg} src={'http://localhost:8002/'+photo} className="rounded-circle" /></td><td></td>
+                                    {(this.state.compte !='') ?  <tr><td className="col-1"><img style={styleimg} src={'http://54.167.118.145:8002/'+photo} className="rounded-circle" /></td><td></td>
                                             <td colspan="2">
                                                 <div className="row"><div className="col-md-4">Noms </div> <div className="col-md-8"> : {prenom} {nom} {post_nom}</div></div>
                                                 <div className="row"><div className="col-md-4">Sexe </div> <div className="col-md-8"> : {sexe}</div></div>
@@ -1805,7 +1805,7 @@ class Repertoire_agence extends React.Component {
             $('#exampleModal3').modal('hide');
         }else{
             if(res =='deconnexion'){
-                window.location.replace("http://localhost:8002/")
+                window.location.replace("http://54.167.118.145:8002/")
             }else{
                 let err = send.result,
                     erreurs=[]
@@ -2167,7 +2167,7 @@ class Nouveau_compte extends React.Component {
                     adresse_physique:item.adresse_physique,
                     date_naissance  :item.date_naissance,
                     type_membre     :item.id_type,
-                    img             :'http://localhost:8002/'+ item.photo,
+                    img             :'http://54.167.118.145:8002/'+ item.photo,
                     img_replace     :item.photo,
                     id_member       :item.id_user,
                     id_organisation :item.id_org,
@@ -2845,7 +2845,7 @@ class Nouveau_depot extends React.Component {
             })
         }else{
             if(send_compte.result =='deconnexion'){
-                window.location.replace("http://localhost:8002/")
+                window.location.replace("http://54.167.118.145:8002/")
             }else{
                 let err    = send_compte.result,
                     erreurs=[]
@@ -2944,7 +2944,7 @@ class Nouveau_retrait extends React.Component {
             })
         }else{
             if(send_compte.result =='deconnexion'){
-                window.location.replace("http://localhost:8002/")
+                window.location.replace("http://54.167.118.145:8002/")
             }else{
                 if(send_compte.result =='otp_on'){
                     this.setState({ state_otp:true,state_msg:'' })
@@ -3067,7 +3067,7 @@ class Nouveau_transfert extends React.Component {
                 this.setState({ state_otp:true,state_msg :'' })
             }else{
                 if(send_compte.result =='deconnexion'){
-                    window.location.replace("http://localhost:8002/")
+                    window.location.replace("http://54.167.118.145:8002/")
                 }else{
                     let err    = send_compte.result,
                         erreurs=[]
@@ -3150,7 +3150,7 @@ class Demande_sode extends React.Component {
             })
         }else{
             if(send_solde.result =='deconnexion'){
-                window.location.replace("http://localhost:8002/")
+                window.location.replace("http://54.167.118.145:8002/")
             }else{
                 let err    = send_solde.result,
                     erreurs=[]
@@ -3229,7 +3229,7 @@ class Historique_transaction extends React.Component {
                 heure_deux    :this.state.heure_deux
             },
             transct = await request_global("/agence/search_transact","POST",data)
-            if(transct.result == 'deconnexion') window.location.replace("http://localhost:8002/")
+            if(transct.result == 'deconnexion') window.location.replace("http://54.167.118.145:8002/")
             else this.setState({historique_transaction : transct.result, btn_search:true,state_msg:''}); 
         }
     }
@@ -3319,7 +3319,7 @@ modifier_profil.addEventListener('click',async (e)=>{
     profil_user = await request_global("/personnel/profil_user","POST",data_profil),
     res_profil = profil_user.result
 
-    if(res_profil =='deconnexion') window.location.replace("http://localhost:8002/")
+    if(res_profil =='deconnexion') window.location.replace("http://54.167.118.145:8002/")
 
     if(res_profil == 'r') $('#profilModal').modal('hide');
     msg_err.textContent = (res_profil[0] !='r') ? res_profil[0] : ''
@@ -3560,7 +3560,7 @@ if(rep_compte){
             res_type_piece_identite = await request_global("/agence/rep_type_piece","POST",{}),
             res_type_piece = res_type_piece_identite.result 
             
-        if(res_type_piece =='deconnexion') window.location.replace("http://localhost:8002/")
+        if(res_type_piece =='deconnexion') window.location.replace("http://54.167.118.145:8002/")
         root.render(<Repertoire_compte_membre piece={res_type_piece} />);
     },false)
 }
@@ -3641,7 +3641,7 @@ async function check_statut(){
     if(stat.getAttribute('data-statut') == 'c') stat.setAttribute('data-statut','d')
     else{
         await request_global("/deconnexion","POST",{})
-        window.location.replace("http://localhost:8002/")
+        window.location.replace("http://54.167.118.145:8002/")
     }
 }
 setInterval(check_statut,300000) // 5 min
