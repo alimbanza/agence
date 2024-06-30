@@ -2845,7 +2845,7 @@ class Nouveau_depot extends React.Component {
             })
         }else{
             if(send_compte.result =='deconnexion'){
-                window.location.replace("http://localhost:8081/")
+                window.location.replace("http://localhost:8002/")
             }else{
                 let err    = send_compte.result,
                     erreurs=[]
@@ -2944,7 +2944,7 @@ class Nouveau_retrait extends React.Component {
             })
         }else{
             if(send_compte.result =='deconnexion'){
-                window.location.replace("http://localhost:8081/")
+                window.location.replace("http://localhost:8002/")
             }else{
                 if(send_compte.result =='otp_on'){
                     this.setState({ state_otp:true,state_msg:'' })
@@ -3067,7 +3067,7 @@ class Nouveau_transfert extends React.Component {
                 this.setState({ state_otp:true,state_msg :'' })
             }else{
                 if(send_compte.result =='deconnexion'){
-                    window.location.replace("http://localhost:8081/")
+                    window.location.replace("http://localhost:8002/")
                 }else{
                     let err    = send_compte.result,
                         erreurs=[]
@@ -3150,7 +3150,7 @@ class Demande_sode extends React.Component {
             })
         }else{
             if(send_solde.result =='deconnexion'){
-                window.location.replace("http://localhost:8081/")
+                window.location.replace("http://localhost:8002/")
             }else{
                 let err    = send_solde.result,
                     erreurs=[]
@@ -3229,7 +3229,7 @@ class Historique_transaction extends React.Component {
                 heure_deux    :this.state.heure_deux
             },
             transct = await request_global("/agence/search_transact","POST",data)
-            if(transct.result == 'deconnexion') window.location.replace("http://localhost:8081/")
+            if(transct.result == 'deconnexion') window.location.replace("http://localhost:8002/")
             else this.setState({historique_transaction : transct.result, btn_search:true,state_msg:''}); 
         }
     }
@@ -3319,7 +3319,7 @@ modifier_profil.addEventListener('click',async (e)=>{
     profil_user = await request_global("/personnel/profil_user","POST",data_profil),
     res_profil = profil_user.result
 
-    if(res_profil =='deconnexion') window.location.replace("http://localhost:8081/")
+    if(res_profil =='deconnexion') window.location.replace("http://localhost:8002/")
 
     if(res_profil == 'r') $('#profilModal').modal('hide');
     msg_err.textContent = (res_profil[0] !='r') ? res_profil[0] : ''
@@ -3641,7 +3641,7 @@ async function check_statut(){
     if(stat.getAttribute('data-statut') == 'c') stat.setAttribute('data-statut','d')
     else{
         await request_global("/deconnexion","POST",{})
-        window.location.replace("http://localhost:8081/")
+        window.location.replace("http://localhost:8002/")
     }
 }
 setInterval(check_statut,300000) // 5 min
