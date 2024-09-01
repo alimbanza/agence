@@ -29,7 +29,7 @@ const RetraitModel                  = require('../models/retrait.model');
 const TransfertModel                = require('../models/transfert.model');
 const TransactionOptModel           = require('../models/transaction_opt.model');
 
-const sequelize = new Sequelize('loanme','root','',{
+const sequelize = new Sequelize('loanmesfn_db','admin','Admin2704@',{
     host    : 'localhost',
     dialect : 'mysql'
 });
